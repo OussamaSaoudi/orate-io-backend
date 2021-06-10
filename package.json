@@ -1,0 +1,23 @@
+{
+  "name": "orate-io-backend",
+  "version": "1.0.0",
+  "description": "backend to orate-io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orate-io/orate-io-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orate-io/orate-io-backend/issues"
+  },
+  "homepage": "https://github.com/orate-io/orate-io-backend#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}
