@@ -20,7 +20,9 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "eslint": "^7.28.0",
+    "eslint-plugin-jest": "^24.3.6",
     "jest": "^27.0.4",
+    "jsdoc": "^3.6.7",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
     "supertest": "^6.1.3"
