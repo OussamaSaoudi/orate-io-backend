@@ -1,5 +1,5 @@
 /**
- * @file Defines Eslint rules that are to be enforced.
+ * @file Defines Eslint rules that are which enforce the coding standard.
  */
 module.exports = {
   env: {
@@ -17,7 +17,7 @@ module.exports = {
   ],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
     sourceType: 'module'
@@ -61,6 +61,10 @@ module.exports = {
     'no-trailing-spaces': 'warn',
     'object-curly-spacing': ['warn', 'always'],
     'arrow-spacing': ['warn', { before: true, after: true }],
-    'multiline-comment-style': ['error']
-  },
+    'multiline-comment-style': ['error'],
+    'comma-spacing': ['warn', { 'before': false, 'after': true }],
+    'array-bracket-spacing': ['warn', 'never'],
+    'eol-last': 1,
+    'comma-dangle': ['warn', 'never']
+  }
 }
