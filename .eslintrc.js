@@ -1,6 +1,4 @@
-/**
- * @file Defines Eslint rules that are which enforce the coding standard.
- */
+
 module.exports = {
   env: {
     node: true,
