@@ -1,3 +1,7 @@
+/**
+ * @file Contains the middleware, includes errore handling and request logs.
+ * @author Yacine Saoudi
+ */
 // const jwt = require('jsonwebtoken')
 
 /**
@@ -7,6 +11,7 @@
  * @log
  * @param {string} method - Method type of request.
  * @param {string} path - Url the rerquest is sent to.
+ * @param {string} body - Content of the request.
  * @param request
  * @param response
  * @param next
@@ -48,6 +53,7 @@ const unkownEndpoint = (request, response) => {
  * @param next
  * @param next
  * @param next
+ * @error error - Default error message, returns 400 status code
  */
 const errorHandler = (error, request, response, next) => {
   console.log(error.message)
