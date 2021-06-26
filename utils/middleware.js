@@ -43,23 +43,21 @@ const unkownEndpoint = (request, response) => {
  *.
  * Error handler middleware.
  *
- * @param error
- * @param request
- * @param error
- * @param request
- * @param error
+ * @param error Nnnn.
  * @param request
  * @param {string} response - Returns error message error is returned.
  * @param next
- * @param next
- * @param next
  * @error error - Default error message, returns 400 status code
+ * @returns
  */
 const errorHandler = (error, request, response, next) => {
   console.log(error.message)
 
   if (error.name === 'error') {
     return response.status(400).send({ error: 'error name' })
+  }
+  else if (error.name == 'validationError'){
+    return response.status(401).send({ error: 'invalid username or password' })
   }
 
   next(error)
