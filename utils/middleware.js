@@ -10,15 +10,9 @@
  *
  * @log
  * @param {string} method - Method type of request.
- * @param {string} path - Url the rerquest is sent to.
+ * @param {string} Path - Url the rerquest is sent to.
  * @param {string} body - Content of the request.
- * @param request
- * @param response
- * @param next
- * @param request
- * @param response
- * @param next
- * @param request
+ * @param request - Receives the method path and body.
  * @param response
  * @param next
  * @param {string} body - Content of the request.
@@ -43,7 +37,7 @@ const unkownEndpoint = (request, response) => {
  *.
  * Error handler middleware.
  *
- * @param error Nnnn.
+ * @param error - The error type received.
  * @param request
  * @param {string} response - Returns error message error is returned.
  * @param next

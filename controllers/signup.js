@@ -1,5 +1,5 @@
 /**
- * @file Managages user signup and password hashing.
+ * @file Manages user signup and password hashing. The post request adds a new user to the database.
  * @author Yacine Saoudi
  */
 const bcrypt = require('bcrypt')
@@ -8,7 +8,7 @@ const User = require('../models/user')
 /**
  * The signup post request takes in user information, hashes the password, saves the username, email, and hash using mongoose.
  *
- * @post
+ * @function post - Sends a post request to /signup
  * @param {string} url - Where the post request is sent.
  * @param {string} request.body - Contains the information sent from the front end, including the username, email, and password.
  * @returns The generated user object.

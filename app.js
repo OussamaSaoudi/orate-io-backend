@@ -1,3 +1,7 @@
+/**
+ * @file Where the program is run, contains the middleware, routes, and connects to the database.
+ * @author Yacine Saoudi
+ */
 const config = require('./utils/config')
 const express = require('express')
 const app = express()
