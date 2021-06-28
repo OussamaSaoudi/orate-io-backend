@@ -8,14 +8,12 @@
  *.
  * Log of information the user sends to the server.
  *
- * @log
- * @param {string} method - Method type of request.
- * @param {string} Path - Url the rerquest is sent to.
- * @param {string} body - Content of the request.
- * @param request - Receives the method path and body.
- * @param response
- * @param next
- * @param {string} body - Content of the request.
+ * @param {object} request Receives the method path and body.
+ * @param {object} response Empty response to be returned.
+ * @param {string} request.method Method type of request.
+ * @param {string} request.path Url the rerquest is sent to.
+ * @param {string} request.body Content of the request.
+ * @param {Function} next Next middleware fuunction to be called.
  */
 const reqLog = (request, response, next) => {
   console.log('Method: ', request.method)
@@ -27,8 +25,9 @@ const reqLog = (request, response, next) => {
  *.
  * Json error message rerouter.
  *
- * @param request
- * @param {string} response - Returns error message if url entered is unknown.
+ * @param {object} request - Receives the error.
+ * @param {object} response - Returns error message if url entered is unknown.
+ * @param {Function} next Next middleware fuunction to be called.
  */
 const unkownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unkown endpoint' })
@@ -37,12 +36,11 @@ const unkownEndpoint = (request, response) => {
  *.
  * Error handler middleware.
  *
- * @param error - The error type received.
- * @param request
- * @param {string} response - Returns error message error is returned.
- * @param next
- * @error error - Default error message, returns 400 status code
- * @returns
+ * @param {object} request - The error.
+ * @param {object} response - Returns error message error is returned.
+ * @param {Function} next Next middleware fuunction to be called.
+ * @param {object} error - The error type received.
+ * @returns {error} Returns status code representing error.
  */
 const errorHandler = (error, request, response, next) => {
   console.log(error.message)
@@ -57,7 +55,7 @@ const errorHandler = (error, request, response, next) => {
   next(error)
 }
 
-module.exports = {
+export default {
   reqLog,
   unkownEndpoint,
   errorHandler
