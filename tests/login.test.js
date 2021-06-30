@@ -1,19 +1,9 @@
 /**
- * @file Test file.
- * @author Yacine Saoudi
+ * @file Test file for login controller request handler.
  */
 const mongoose = require('mongoose')
-/*
- * const supertest = require('supertest')
- * const app = require('../app.js')
- */
-/*
- * const loginRouter=require('../controllers/login.js')
- * const api = supertest(app)
- */
 
-const initialAccounts = [
-]
+const initialAccounts = []
 
 test('initial accounts is empty', async () => {
   expect(initialAccounts).toHaveLength(0)

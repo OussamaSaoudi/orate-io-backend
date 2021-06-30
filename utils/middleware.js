@@ -1,11 +1,8 @@
 /**
  * @file Contains the middleware, includes errore handling and request logs.
- * @author Yacine Saoudi
  */
-// const jwt = require('jsonwebtoken')
 
 /**
- *.
  * Log of information the user sends to the server.
  *
  * @param {object} request Receives the method path and body.
@@ -23,23 +20,22 @@ const reqLog = (request, response, next) => {
 }
 /**
  *.
- * Json error message rerouter.
+ * Json error message rerouter for cases where the url from the request doesnt exist.
  *
- * @param {object} request - Receives the error.
- * @param {object} response - Returns error message if url entered is unknown.
+ * @param {object} request Receives the error.
+ * @param {object} response Returns error message if url entered is unknown.
  * @param {Function} next Next middleware fuunction to be called.
  */
 const unkownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unkown endpoint' })
 }
 /**
- *.
  * Error handler middleware.
  *
- * @param {object} request - The error.
- * @param {object} response - Returns error message error is returned.
+ * @param {object} request The error.
+ * @param {object} response Returns error message error is returned.
  * @param {Function} next Next middleware fuunction to be called.
- * @param {object} error - The error type received.
+ * @param {object} error The error type received.
  * @returns {error} Returns status code representing error.
  */
 const errorHandler = (error, request, response, next) => {

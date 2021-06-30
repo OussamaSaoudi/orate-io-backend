@@ -1,13 +1,13 @@
 /**
  * @file Schema for user model.
- * @author Yacine Saoudi
  */
 const mongoose = require('mongoose')
-// const uniqueValidator = ('mongoose-unique-validator')
+// eslint-disable-next-line no-unused-vars
+const uniqueValidator = ('mongoose-unique-validator')
 /**
- * UserSchema - How the user will be saved in the database.
+ * UserSchema Template for user data in the database.
  *
- * @class userSchema - Sends a post request to /login
+ * @class userSchema Sends a post request to /login
  */
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
