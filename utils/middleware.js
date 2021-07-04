@@ -18,8 +18,8 @@ const reqLog = (request, response, next) => {
   console.log('Body: ', request.body)
   next()
 }
+
 /**
- *.
  * Json error message rerouter for cases where the url from the request doesnt exist.
  *
  * @param {object} request Receives the error.
@@ -29,6 +29,7 @@ const reqLog = (request, response, next) => {
 const unkownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unkown endpoint' })
 }
+
 /**
  * Error handler middleware.
  *

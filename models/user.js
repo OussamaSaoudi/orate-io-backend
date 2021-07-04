@@ -4,6 +4,7 @@
 const mongoose = require('mongoose')
 // eslint-disable-next-line no-unused-vars
 const uniqueValidator = ('mongoose-unique-validator')
+
 /**
  * UserSchema Template for user data in the database.
  *

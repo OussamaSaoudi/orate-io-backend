@@ -4,6 +4,7 @@
 const bcrypt = require('bcrypt')
 const signupRouter = require('express').Router()
 const User = require('../models/user')
+
 /**
  * The signup post request takes in user information, hashes the password, saves the username, email, and hash using mongoose.
  *

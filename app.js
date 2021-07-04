@@ -5,12 +5,14 @@ const config = require('./utils/config')
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const mongoose = require('mongoose')
+
+/* calling controller variables */
 const loginRouter = require('./controllers/login')
 const signupRouter = require('./controllers/signup')
 const middleware = require('./utils/middleware')
-const mongoose = require('mongoose')
 
-
+/* setting the uri based on if the file has access to the env */
 const uri = config.MONGODB_URI
   ? config.MONGODB_URI
   : null

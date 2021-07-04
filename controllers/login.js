@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const loginRouter = require('express').Router()
 const User = require('../models/user')
+
 /**
  * The login post request checks for a corresponding username in the database and then compares passwords to ensure it was
  * entered correctly, it returns an auth token.
