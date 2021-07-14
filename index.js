@@ -1,13 +1,11 @@
 /**
- * @file The index.js file is the root of the program runtime and
- * deals with server and environment variables.
+ * @file Creates and runs the server using app.js.
  */
+const app = require('./app')
 const http = require('http')
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { 'Contetn-Type': 'text/plain' })
-  response.end('Hello World')
-})
+const config = require('./utils/config')
+const server = http.createServer(app)
 
-const PORT = 3001
-app.listen(PORT)
-console.log(`server running on port: ${PORT}`)
+server.listen(config.PORT, () => {
+  console.log(`Server running on port ${config.PORT}`)
+})
