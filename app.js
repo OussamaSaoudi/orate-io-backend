@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const loginRouter = require('./controllers/login')
 const signupRouter = require('./controllers/signup')
 const videoRouter = require('./controllers/video')
+const awsRouter = require('./controllers/awsS3')
 const middleware = require('./utils/middleware')
 
 /* setting the uri based on if the file has access to the env */
@@ -39,6 +40,8 @@ app.use(middleware.userGet)
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
 app.use('/video', videoRouter)
+app.use('/s3Url', awsRouter)
+
 /*
  * Error Handling
  */

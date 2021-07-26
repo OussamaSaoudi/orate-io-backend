@@ -65,6 +65,7 @@ module.exports = {
     'comma-spacing': ['warn', { 'before': false, 'after': true }],
     'array-bracket-spacing': ['warn', 'never'],
     'eol-last': 1,
-    'comma-dangle': ['warn', 'never']
+    'comma-dangle': ['warn', 'never'],
+    'space-after-keywords': ['warn', 'never']
   }
 }
