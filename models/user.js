@@ -1,5 +1,5 @@
 /**
- * @file Schema for user model.
+ * @file Schema for user model. Saves username, email, password hash, and videos array.
  */
 const mongoose = require('mongoose')
 // eslint-disable-next-line no-unused-vars
@@ -13,7 +13,13 @@ const uniqueValidator = ('mongoose-unique-validator')
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   email: { type: String, unique: true },
-  passHash: String
+  passHash: String,
+  videos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Video'
+    }
+  ]
 })
 
 userSchema.set('toJSON', {

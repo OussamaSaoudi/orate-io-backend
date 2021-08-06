@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 /* calling controller variables */
 const loginRouter = require('./controllers/login')
 const signupRouter = require('./controllers/signup')
+const videoRouter = require('./controllers/video')
 const middleware = require('./utils/middleware')
 
 /* setting the uri based on if the file has access to the env */
@@ -29,12 +30,15 @@ app.use(cors())
 app.use(express.static('build'))
 app.use(express.json())
 app.use(middleware.reqLog)
+app.use(middleware.tokenGet)
+app.use(middleware.userGet)
+
 /*
  * Routers
  */
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
-
+app.use('/video', videoRouter)
 /*
  * Error Handling
  */
