@@ -30,21 +30,23 @@ videoRouter.get('/', async (request, response) => {
  * @returns Updated array of videos the user posted.
  */
 videoRouter.post('/', async (request, response) => {
-
-  // eslint-disable-next-line no-unused-vars
-  const newVid = new Video ({
-    username: request.user.username,
-    userId: request.user.id
+  const video = new Video ({
+    url: request.body.url,
+    name: request.body.name,
+    user: request.user.id,
+    s3ID: request.body.id
   })
-  await User
-    .findById(request.user.id)
-    .populate('videos')
-    .exec(User.vidoes.concat(newVid))
-    /* make it find users based on id */
-  const videos = await Video.find({  })
 
-  response
-    .json(videos)
+  try {
+    const savedVideo = await video.save()
+    const user = await User.findById(request.user.id)
+    user.videos = user.videos.concat(savedVideo._id)
+    await user.save()
+  } catch (error) {
+    response.status(400).json({error: 'failed to save video to user'})
+  }
+
+  response.status(200)
 })
 
 module.exports = videoRouter

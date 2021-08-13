@@ -31,8 +31,8 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFind
 /*
  * Request processing
  */
-app.use(express.json())
 app.use(morgan('tiny'))
+app.use(express.json())
 app.use(cors())
 app.use(middleware.reqLog)
 app.use(middleware.tokenGet)

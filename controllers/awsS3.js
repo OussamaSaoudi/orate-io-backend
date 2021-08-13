@@ -29,21 +29,24 @@ const s3 = new aws.S3({
  */
 awsRouter.get('/', async (request, response) => {
   /*
-   * This will give a unique string. It will also prevent adversaries
-   * from being able to get a video from the server
+   * This will give a random string. It will also prevent adversaries
+   * from being able to get a video from the server.
+   * TODO: Ensure that a random value is not generated twice
    */
+
   const rawBytes = await crypto.randomBytes(16)
-  const videoName = rawBytes.toString('hex')
+  const videoId = rawBytes.toString('hex')
   const params = ({
     Bucket: config.AWS_BUCKET_NAME,
-    Key: videoName,
+    Key: videoId,
     Expires: EXPIRY_TIME
   })
 
   const uploadURL = await s3.getSignedUrlPromise('putObject', params)
 
   response.json({
-    'url': uploadURL
+    'url': uploadURL,
+    'videoId': videoId
   })
 })
 

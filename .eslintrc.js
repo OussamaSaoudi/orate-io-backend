@@ -60,12 +60,10 @@ module.exports = {
     'semi': ['warn', 'never'],
     'no-trailing-spaces': 'warn',
     'object-curly-spacing': ['warn', 'always'],
-    'arrow-spacing': ['warn', { before: true, after: true }],
-    'multiline-comment-style': ['error'],
+    'arrow-spacing': ['warn', { 'before': true, 'after': true }],
     'comma-spacing': ['warn', { 'before': false, 'after': true }],
     'array-bracket-spacing': ['warn', 'never'],
     'eol-last': 1,
-    'comma-dangle': ['warn', 'never'],
-    'keyword-spacing': ['warn', 'never']
+    'comma-dangle': ['warn', 'never']
   }
 }
