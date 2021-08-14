@@ -3,6 +3,7 @@
  */
 const config = require('./utils/config')
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -11,24 +12,28 @@ const mongoose = require('mongoose')
 const loginRouter = require('./controllers/login')
 const signupRouter = require('./controllers/signup')
 const videoRouter = require('./controllers/video')
+const awsRouter = require('./controllers/awsS3')
 const middleware = require('./utils/middleware')
 
 /* setting the uri based on if the file has access to the env */
 const uri = config.MONGODB_URI
   ? config.MONGODB_URI
-  : null
+  : ''
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
-  .then(() => {
-    console.log('connected to mongoDB')
-  })
+.then(() => {
+  console.log('connected to mongoDB')
+})
+.catch((error) =>{
+  console.log(error.message)
+})
 
 /*
  * Request processing
  */
-app.use(cors())
-app.use(express.static('build'))
+app.use(morgan('tiny'))
 app.use(express.json())
+app.use(cors())
 app.use(middleware.reqLog)
 app.use(middleware.tokenGet)
 app.use(middleware.userGet)
@@ -39,6 +44,8 @@ app.use(middleware.userGet)
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
 app.use('/video', videoRouter)
+app.use('/s3Url', awsRouter)
+
 /*
  * Error Handling
  */

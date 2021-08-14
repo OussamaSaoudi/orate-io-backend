@@ -11,12 +11,14 @@ const uniqueValidator = ('mongoose-unique-validator')
  * @class Video schema contains video, stats, and user data. Sends post request to /video
  */
 const videoSchema = new mongoose.Schema({
-  video: { type: String, require: true },
-  stats: String,
+  url: { type: String, require: true },
+  name: { type: String, require: true },
   user: {
     type:mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }
+    ref: 'User',
+    require: true
+  },
+  s3ID: { type: String, require: true }
 })
 
 videoSchema.set('toJSON', {

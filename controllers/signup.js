@@ -22,7 +22,8 @@ signupRouter.post('/', async (request, response) => {
   const user = new User ({
     username: body.username,
     email: body.email,
-    passHash: passwordHash
+    passHash: passwordHash,
+    videos: []
   })
   const savedUser = await user.save()
 
