@@ -25,9 +25,12 @@ signupRouter.post('/', async (request, response) => {
     passHash: passwordHash,
     videos: []
   })
-  const savedUser = await user.save()
-
-  response.json(savedUser)
+  try {
+    await user.save()
+    response.status(201).json(user)
+  } catch (error) {
+    response.status(403).json({ error })
+  }
 })
 
 module.exports = signupRouter

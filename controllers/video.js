@@ -42,11 +42,10 @@ videoRouter.post('/', async (request, response) => {
     const user = await User.findById(request.user.id)
     user.videos = user.videos.concat(savedVideo._id)
     await user.save()
+    response.status(200).json(video)
   } catch (error) {
-    response.status(400).json({error: 'failed to save video to user'})
+    response.status(400).json({ error: 'failed to save video to user' })
   }
-
-  response.status(200)
 })
 
 module.exports = videoRouter
