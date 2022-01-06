@@ -21,12 +21,12 @@ const uri = config.MONGODB_URI
   : ''
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
-.then(() => {
-  console.log('connected to mongoDB')
-})
-.catch((error) =>{
-  console.log(error.message)
-})
+  .then(() => {
+    console.log('connected to mongoDB')
+  })
+  .catch((error) => {
+    console.log(error.message)
+  })
 
 /*
  * Request processing

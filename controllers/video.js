@@ -4,6 +4,7 @@
 const videoRouter = require('express').Router()
 const User = require('../models/user')
 const Video = require('../models/video')
+const transcription = require('../utils/transcription')
 /**
  * The login post request checks for a corresponding username in the database and then compares passwords to ensure it was
  * entered correctly, it returns an auth token.
@@ -42,8 +43,9 @@ videoRouter.post('/', async (request, response) => {
     const user = await User.findById(request.user.id)
     user.videos = user.videos.concat(savedVideo._id)
     await user.save()
+    transcription.transcribe(video.url, video.s3ID)
   } catch (error) {
-    response.status(400).json({error: 'failed to save video to user'})
+    response.status(400).json({ error: 'failed to save video to user' })
   }
 
   response.status(200)
